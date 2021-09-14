@@ -128,5 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Unity Environments
 Tennis.app
+
+# Mac file system
+.DS_*
+
+# Checkpoints
 checkpoints
