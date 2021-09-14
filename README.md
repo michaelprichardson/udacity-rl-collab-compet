@@ -4,7 +4,7 @@
 
 # Udacity Deep RL Project 3: Collaboration and Competition
 
-For this project, you will train an agent to navigate (and collect bananas!) in a large, square world.  
+For this project, you will work with the Tennis environment.
 
 ![Trained Agent (Credit Udacity)][image1]
 
