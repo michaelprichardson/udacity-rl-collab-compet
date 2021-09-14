@@ -1,6 +1,6 @@
 [//]: # (Image References)
 
-[image1]: https://github.com/michaelprichardson/udacity-rl-continuos-control/blob/master/assets/udacity_gif.gif "Trained Agent (Credit Udacity)"
+[image1]: https://github.com/michaelprichardson/udacity-rl-collab-compet/blob/master/assets/udacity_gif.gif "Trained Agent (Credit Udacity)"
 
 # Udacity Deep RL Project 3: Collaboration and Competition
 
