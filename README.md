@@ -2,7 +2,7 @@
 
 [image1]: https://github.com/michaelprichardson/udacity-rl-continuos-control/blob/master/assets/udacity_gif.gif "Trained Agent (Credit Udacity)"
 
-# Udacity Deep RL Project 2: Collaboration and Competition
+# Udacity Deep RL Project 3: Collaboration and Competition
 
 For this project, you will train an agent to navigate (and collect bananas!) in a large, square world.  
 
