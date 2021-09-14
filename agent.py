@@ -13,8 +13,8 @@ BUFFER_SIZE = int(1e5)  # replay buffer size
 BATCH_SIZE = 128        # minibatch size
 GAMMA = 0.99            # discount factor
 TAU = 0.001             # for soft update of target parameters
-LR_ACTOR = 2e-4         # learning rate of the actor 
-LR_CRITIC = 2e-4        # learning rate of the critic
+LR_ACTOR = 1e-4         # learning rate of the actor 
+LR_CRITIC = 1e-3        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -22,7 +22,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 class Agent():
     """Interacts with and learns from the environment."""
     
-    def __init__(self, state_size, action_size, n_agents, random_seed):
+    def __init__(self, state_size, action_size, n_agents, random_seed, layer_1=128, layer_2=128):
         """Initialize an Agent object.
         
         Params
@@ -30,20 +30,24 @@ class Agent():
             state_size (int): dimension of each state
             action_size (int): dimension of each action
             random_seed (int): random seed
+            layer_1 (int): Number of nodes in first hidden layer
+            layer_2 (int): Number of nodes in second hidden layer
         """
         self.state_size = state_size
         self.action_size = action_size
         self.n_agents = n_agents
         self.seed = random.seed(random_seed)
+        self.layer_1 = layer_1
+        self.layer_2 = layer_2
 
         # Actor Network (w/ Target Network)
-        self.actor_local = Actor(state_size, action_size, random_seed).to(device)
-        self.actor_target = Actor(state_size, action_size, random_seed).to(device)
+        self.actor_local = Actor(state_size, action_size, random_seed, layer_1, layer_2).to(device)
+        self.actor_target = Actor(state_size, action_size, random_seed, layer_1, layer_2).to(device)
         self.actor_optimizer = optim.Adam(self.actor_local.parameters(), lr=LR_ACTOR)
 
         # Critic Network (w/ Target Network)
-        self.critic_local = Critic(state_size, action_size, random_seed).to(device)
-        self.critic_target = Critic(state_size, action_size, random_seed).to(device)
+        self.critic_local = Critic(state_size, action_size, random_seed, layer_1, layer_2).to(device)
+        self.critic_target = Critic(state_size, action_size, random_seed, layer_1, layer_2).to(device)
         self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LR_CRITIC, weight_decay=WEIGHT_DECAY)
         
         # Noise process for multiple agents
