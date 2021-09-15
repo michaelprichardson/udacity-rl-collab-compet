@@ -1,4 +1,3 @@
-# https://github.com/drnefischer/udacity/tree/main/DRLND/Collaboration%20and%20Competition
 import numpy as np
 
 import torch
