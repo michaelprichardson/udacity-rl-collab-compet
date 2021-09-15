@@ -16,7 +16,7 @@ The observation space consists of 8 variables corresponding to the position and 
 
 MADDPG which is an actor-critic approach was used as the learning algorithm for the agent. This algorithm is derived from DDPG, but manages to solve tasks with multiple agents.
 
-As an off-policy algorithm MADDPG utilizes four neural networks: a local actor, a target actor, a local critic and a target critic Each training step the experience (state, action, action_other_agent, reward, next state, next_state_other_agent) the two agents gained was stored. Then every training step the agent learned from a random sample from the stored experience. 
+As an off-policy algorithm MADDPG utilizes four neural networks: a local actor, a target actor, a local critic and a target critic Each training step the experience (state, action, reward, next state) the two agents gained was stored. Then every training step the agent learned from a random sample from the stored experience. 
 
 The actor tries to estimate the optimal policy by using the estimated state-action values from the critic while critic tries to estimate the optimal q-value function and learns by using a normal q-learning approach. Using this approach one gains the benefits of value based and policy based methods at the same time. By giving the critic access to the action of the other player the learning process gets stabilized without requiring to give the additional information to the actor which is the only network required for acting after the agent was trained successfully.
 
